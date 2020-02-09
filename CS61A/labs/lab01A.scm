@@ -1,5 +1,5 @@
 ;; Spencer Markin
-;; Lab 01 2020-Feb-08
+;; Lab 01A 2020-Feb-08
 
 (load "../simply.scm")
 
