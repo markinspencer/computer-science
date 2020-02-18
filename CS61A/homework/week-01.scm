@@ -3,17 +3,16 @@
 
 (load "../simply.scm")
 
-;; Question 1:
-;; Skipped was an essay question
+;; Skipped questions 1 and 6, they are essay questions.
 
 ;; Question 2:
 ;; Write a procedure squares that takes a sentence of numbers as its argument
 ;; and returns a sentence of the squares of the number
 
-(define (squares s)
-  (if (empty? s)
+(define (squares nums)
+  (if (empty? nums)
 	  '()
-	  (se (square (first s)) (squares (bf s)))))
+	  (se (square (first nums)) (squares (bf nums)))))
 
 ;; Question 3:
 ;; Write a procedure switch that takes a sentence as its argument and returns
@@ -35,5 +34,27 @@
 	    ((equal? w 'you) 'me)
 	    (else w)))
 
+;; Question 4:
+;; Write a predicate ordered? that takes a sentence of numbers as its argument
+;; and returns a true value if the numbers are in ascending order, or a false
+;; value otherwise.
 
+(define (ordered? nums)
+  (if (< (length nums) 2)
+      true
+      (if (< (first nums) (first (bf nums)))
+	  (ordered? (bf nums))
+	  false)))
+
+;; Question 5:
+;; Write a procedure ends-e that takes a sentence as its argument and returns
+;; a sentence containing only those words of the argument whose last letter is
+;; E.
+
+(define (ends-e s)
+  (if (empty? s)
+      '()
+      (if (equal? (last (first s)) 'e)
+	  (se (first s) (ends-e (bf s)))
+	  (ends-e (bf s)))))
 
